@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: "Hospital Management System/Backend/AppointMentBooking/Dockerfile"
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # Set these in a real deployment or use Render environment variables
+      - ConnectionStrings__constr=Server=host.docker.internal;Database=HMS;User Id=sa;Password=YourStrong!Passw0rd;
+      - Jwt__Issuer=yourissuer
+      - Jwt__Audience=youraud
+      - Jwt__Key=verysecretkey
+
+  frontend:
+    build:
+      context: .
+      dockerfile: "Hospital Management System/Frontend/Dockerfile"
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
