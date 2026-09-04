@@ -1,0 +1,14 @@
+# Node / Angular
+**/node_modules/
+**/.angular/
+**/dist/
+
+# .NET / C#
+**/.vs/
+**/bin/
+**/obj/
+
+# System / IDE
+.vscode/
+Thumbs.db
+.DS_Store
